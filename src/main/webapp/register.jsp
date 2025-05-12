@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ebook: Register</title>
+<title>NhanBook: Register</title>
 <%@include file="all_component/allCss.jsp"%>
 </head>
 <body
