@@ -15,7 +15,7 @@
 		<c:redirect url="../login.jsp" />
 	</c:if>
 	<div class="container mt-4">
-		<div class="row">
+		<div class="row p-3">
 			<div class="col-md-4 offset-md-4">
 				<div class="card">
 					<div class="card-body">

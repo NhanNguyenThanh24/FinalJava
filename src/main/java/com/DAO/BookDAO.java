@@ -21,4 +21,10 @@ public interface BookDAO {
 	public List<BookDtls> getRecentBook();
 	
 	public List<BookDtls> getOldBook();
+	
+	public List<BookDtls> getAllRecentBook();
+	
+	public List<BookDtls> getAllNewBook();
+	
+	public List<BookDtls> getAllOldBook();
 }

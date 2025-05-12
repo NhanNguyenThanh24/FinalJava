@@ -37,10 +37,45 @@ background: linear-gradient(to top, #3d72b4, #525252);
 	font-size: 3em;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-.crd-ho:hover {
-	background-color: #F5F5F5;
+.card.crd-ho {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
+
+.card.crd-ho:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    background: #f1f1f1;
+}
+
+.card-body img {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-body p {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.card-body .btn {
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-body .btn:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
 
 hr {
     border: 0;
@@ -86,11 +121,12 @@ hr:after {
 </style>
 
 </head>
-<body">
+<body>
 	<%@include file="all_component/navbar.jsp"%>
 	<div class="container-fluid back-img">
-		<h2 class="text-center">NhanBooks Management System</h2>
+		<h2 class="text-center">NhanBooks - Where Stories Begin</h2>
 	</div>
+	<hr>
 
 	<!-- Start Recent Book -->
 
@@ -115,18 +151,21 @@ hr:after {
 							if (b.getBookCategory().equals("Old")) {
 							%>
 							Categories:<%=b.getBookCategory()%></p>
-						<div class="row">
-							<a href="" class="btn btn-success btn-sm ml-5">View Details</a> <a
-								href="" class="btn btn-danger btn-sm ml-1"><%=b.getPrice()%></a>
+						<div class="d-flex justify-content-center flex-wrap gap-1 mt-2">
+						<!-- Học Câu ni-->
+							<a href="view_book.jsp?bid=<%=b.getBookId() %>" class="btn btn-success btn-sm">View Details</a> <a
+								href="" class="btn btn-danger btn-sm ml-1"><%=b.getPrice()%> <i class="fas fa-dollar-sign"></i>
+								</a>
 						</div>
 						<%
 						} else {
 						%>
 						Categories:<%=b.getBookCategory()%></p>
-						<div class="row">
-							<a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a> <a
-								href="" class="btn btn-success btn-sm ml-1">View Details</a> <a
-								href="" class="btn btn-danger btn-sm ml-1"><%=b.getPrice()%></a>
+						<div class="class="d-flex justify-content-center flex-wrap gap-1 mt-2">
+							<a href="" class="btn btn-danger btn-sm">Add Cart</a> <a
+								href="view_book.jsp?bid=<%=b.getBookId()%> " class="btn btn-success btn-sm">View Details</a> <a
+								href="" class="btn btn-danger btn-sm mt-2"><%=b.getPrice()%> <i class="fas fa-dollar-sign"></i>
+								</a>
 						</div>
 						<%
 						}
@@ -141,7 +180,7 @@ hr:after {
 
 		</div>
 		<div class="text-center mt-2">
-			<a href="" class="btn btn-danger btn-sm text-white">View All</a>
+			<a href="all_recent_book.jsp" class="btn btn-danger btn-sm text-white mt-3">View All</a>
 		</div>
 
 	</div>
@@ -170,10 +209,11 @@ hr:after {
 						<p>
 							Categories:
 							<%=b.getBookCategory()%></p>
-						<div class="row">
-							<a href="" class="btn btn-danger btn-sm ml-1">Add Cart</a> <a
-								href="" class="btn btn-success btn-sm ml-1">View Details</a><a
-								href="" class="btn btn-danger btn-sm ml-1"><%=b.getPrice()%></a>
+						<div class="class="d-flex justify-content-center flex-wrap gap-1 mt-2"">
+							<a href="" class="btn btn-danger btn-sm">Add Cart</a> <a
+								href="view_book.jsp?bid=<%=b.getBookId()%> " class="btn btn-success btn-sm">View Details</a> <a
+								href="" class="btn btn-danger btn-sm mt-2"><%=b.getPrice()%> <i class="fas fa-dollar-sign"></i>
+								</a>
 						</div>
 					</div>
 				</div>
@@ -188,7 +228,7 @@ hr:after {
 
 		</div>
 		<div class="text-center mt-2">
-			<a herf="" class="btn btn-danger btn-sm text-white">View All</a>
+			<a href="all_new_book.jsp" class="btn btn-danger btn-sm text-white mt-3">View All</a>
 		</div>
 
 	</div>
@@ -214,9 +254,10 @@ hr:after {
 						<p><%=b.getBookname()%></p>
 						<p><%=b.getAuthor()%></p>
 						<p><%=b.getBookCategory()%></p>
-						<div class="row">
-							<a href="" class="btn btn-success btn-sm ml-5">View Details</a><a
-								href="" class="btn btn-danger btn-sm ml-1"><%=b.getPrice()%></a>
+						<div class="class="d-flex justify-content-center flex-wrap gap-1 mt-2"">
+							<a href="view_book.jsp?bid=<%=b.getBookId()%> " class="btn btn-success btn-sm">View Details</a><a
+								href="" class="btn btn-danger btn-sm ml-1"><%=b.getPrice()%> <i class="fas fa-dollar-sign"></i>
+								</a>
 						</div>
 					</div>
 				</div>
@@ -227,7 +268,7 @@ hr:after {
 
 		</div>
 		<div class="text-center mt-2">
-			<a herf="" class="btn btn-danger btn-sm text-white">View All</a>
+			<a herf="all_old_book.jsp" class="btn btn-danger btn-sm text-white mt-3">View All</a>
 		</div>
 
 	</div>
