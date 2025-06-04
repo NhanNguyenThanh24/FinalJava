@@ -33,7 +33,7 @@ public class BooksAdd extends HttpServlet {
             String fileName = part.getSubmittedFileName();
 
             BookDtls b = new BookDtls(bookname, author, price, categories, status, fileName, "admin");
-
+           
             BookDAOimpl dao = new BookDAOimpl(DBConnect.getConn());
             boolean f = dao.addBooks(b);
             HttpSession session = req.getSession();
@@ -47,7 +47,6 @@ public class BooksAdd extends HttpServlet {
               
                 // Tạo OutputStream để ghi vào file
                 FileOutputStream outputStream = new FileOutputStream(path + File.separator + fileName);
-
                 // Đọc từ InputStream và ghi vào OutputStream
                 byte[] buffer = new byte[1024];
                 int bytesRead;

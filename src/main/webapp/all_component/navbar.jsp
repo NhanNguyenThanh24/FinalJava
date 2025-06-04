@@ -1,13 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
 <div class="container-fluid"
 	style="height: 10px; background-color: #303f9f"></div>
 
 <div class="container-fluid p-3 bg-light">
 	<div class="row align-items-center">
-		<!-- Thêm align-items-center vào đây -->
+
 		<div class="col-md-3 text-success d-flex align-items-center">
-			<!-- Thêm d-flex và align-items-center -->
+
 			<h3 class="mb-0">
-				<!-- Thêm mb-0 để bỏ margin bottom mặc định của h3 -->
+
 				<i class="fas fa-book-reader"></i> NhanBooks
 			</h3>
 		</div>
@@ -22,30 +24,58 @@
 				</div>
 			</div>
 		</div>
+		<c:if test="${not empty userobj }">
+			<div class="col-md-3">
+				<a href="login.jsp" class="button button-login"> <span
+					class="button__text">${userobj.name} </span> <span
+					class="button__icon"> <svg
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+							stroke-linecap="round" stroke-linejoin="round">
+                             <circle cx="12" cy="8" r="4"></circle>
+                             <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+                        </svg>
 
-		<div class="col-md-3">
-
-			<a href="login.jsp" class="button button-login"> <span
-				class="button__text">Login</span> <span class="button__icon">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round"
-							d="M10 16l4-4m0 0l-4-4m4 4H3m13-7h4a2 2 0 012 2v10a2 2 0 01-2 2h-4" />
-    </svg>
-			</span>
-			</a> <a href="register.jsp" class="button"> <span
-				class="button__text">Register</span> <span class="button__icon">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24"
-						viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round"
-						stroke-linecap="round" stroke="currentColor" height="24"
-						fill="none" class="svg">
+				</span>
+				</a> <a href="logout" class="button"> <span
+					class="button__text">Logout</span> <span class="button__icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24"
+							viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round"
+							stroke-linecap="round" stroke="currentColor" height="24"
+							fill="none" class="svg">
       <line y2="19" y1="5" x2="12" x1="12"></line>
       <line y2="12" y1="12" x2="19" x1="5"></line>
     </svg>
-			</span>
-			</a>
+				</span>
+				</a>
 
-		</div>
+			</div>
+		</c:if>
+
+		<c:if test="${empty userobj }">
+			<div class="col-md-3">
+				<a href="login.jsp" class="button button-login"> <span
+					class="button__text">Login</span> <span class="button__icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+								d="M10 16l4-4m0 0l-4-4m4 4H3m13-7h4a2 2 0 012 2v10a2 2 0 01-2 2h-4" />
+    </svg>
+				</span>
+				</a> <a href="register.jsp" class="button"> <span
+					class="button__text">Register</span> <span class="button__icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24"
+							viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round"
+							stroke-linecap="round" stroke="currentColor" height="24"
+							fill="none" class="svg">
+      <line y2="19" y1="5" x2="12" x1="12"></line>
+      <line y2="12" y1="12" x2="19" x1="5"></line>
+    </svg>
+				</span>
+				</a>
+
+			</div>
+		</c:if>
 
 	</div>
 </div>
@@ -69,20 +99,35 @@
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="all_new_book.jsp">New
 					Book</a></li>
-			<li class="nav-item"><a class="nav-link" href="all_recent_book.jsp">Recent
-					Book</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="all_recent_book.jsp">Recent Book</a></li>
 			<li class="nav-item"><a class="nav-link" href="all_old_book.jsp">Old
 					Book</a></li>
 		</ul>
 
-		<form class="form-inline my-2 my-lg-0">
-			<button class="btn btn-light my-2 my-sm-0" type="submit">
-				<i class="fas fa-cog"></i> Setting
-			</button>
-			<button class="btn btn-light my-2 my-sm-0 ml-1" type="submit">
-				<i class="fas fa-phone-square-alt"></i> Contact
-			</button>
-		</form>
+		<c:if test="${not empty userobj }">
+			<form class="form-inline my-2 my-lg-0">
+				<button class="btn btn-light my-2 my-sm-0" type="submit">
+					<i class="fas fa-cog"></i> Setting
+				</button>
+				<button class="btn btn-light my-2 my-sm-0 ml-1 mr-3" type="submit">
+					<i class="fas fa-phone-square-alt"></i> Contact
+				</button>
+				<a href="checkout.jsp" style="color: #FF8C00" class="mr-2"><i
+					class="fas fa-shopping-cart fa-2x"></i> </a>
+			</form>
+		</c:if>
+		<c:if test="${empty userobj }">
+			<form class="form-inline my-2 my-lg-0">
+				<button class="btn btn-light my-2 my-sm-0" type="submit">
+					<i class="fas fa-cog"></i> Setting
+				</button>
+				<button class="btn btn-light my-2 my-sm-0 ml-1" type="submit">
+					<i class="fas fa-phone-square-alt"></i> Contact
+				</button>
+				</form>	
+		</c:if>
+
 	</div>
 </nav>
 
@@ -237,21 +282,20 @@
 }
 /* Căn chỉnh nav-item và tăng khoảng cách */
 .nav-items-custom .nav-item {
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #fff;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 8px 12px;
-    transition: color 0.3s ease;
-    border-radius: 5px;
+	color: #fff;
+	font-weight: 500;
+	font-size: 16px;
+	padding: 8px 12px;
+	transition: color 0.3s ease;
+	border-radius: 5px;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #cfd8dc;
-    background-color: rgba(255, 255, 255, 0.1);
+	color: #cfd8dc;
+	background-color: rgba(255, 255, 255, 0.1);
 }
-
 </style>

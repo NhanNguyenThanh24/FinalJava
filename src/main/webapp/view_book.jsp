@@ -15,7 +15,6 @@ body {
 	background: -webkit-linear-gradient(to top, #3d72b4, #525252);
 	background: linear-gradient(to top, #3d72b4, #525252);
 }
-
 </style>
 </head>
 <body>
@@ -49,49 +48,70 @@ body {
 				<h2><%=b.getBookname()%></h2>
 				<div class="text-center">
 
-					<% if ("Old".equals(b.getBookCategory())) { %>
-<!-- Đặt NGOÀI row -->
-<div class="seller-contact p-3 mb-4"
-	style="background: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-	<h5 class="mb-3" style="color: #1b3c3d; font-weight: 600;">
-		<i class="fas fa-user-circle me-2"></i> Contact Seller
-	</h5>
-	<div class="d-flex align-items-center justify-content-center">
-		<i class="far fa-envelope me-2" style="color: #3d72b4;"></i>
-		<h5 class="mb-0" style="color: #666;">
-			Email: <span style="color: #3d72b4; font-weight: 500;"><%=b.getEmail()%></span>
-		</h5>
-	</div>
-</div>
-<% } %>
+					<%
+					if ("Old".equals(b.getBookCategory())) {
+					%>
 
-<!-- DÒNG RIÊNG CHO ICON -->
-<div class="row mt-4">
-	<div class="col-md-4 text-danger text-center p-2">
-		<i class="fas fa-money-bill-wave fa-3x"></i>
-		<p>Cash On Delivery</p>
-	</div>
+					<!-- Đặt NGOÀI row -->
+					<div class="seller-contact p-3 mb-4"
+						style="background: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+						<h5 class="mb-3" style="color: #1b3c3d; font-weight: 600;">
+							<i class="fas fa-user-circle me-2"></i> Contact Seller
+						</h5>
+						<div class="d-flex align-items-center justify-content-center">
+							<i class="far fa-envelope me-2" style="color: #3d72b4;"></i>
+							<h5 class="mb-0" style="color: #666;">
+								Email: <span style="color: #3d72b4; font-weight: 500;"><%=b.getEmail()%></span>
+							</h5>
+						</div>
+					</div>
+					<%
+					}
+					%>
 
-	<div class="col-md-4 text-danger text-center p-2">
-		<i class="fas fa-undo-alt fa-3x"></i>
-		<p>Return Available</p>
-	</div>
+					<!-- DÒNG RIÊNG CHO ICON -->
+					<div class="row mt-4">
+						<div class="col-md-4 text-danger text-center p-2">
+							<i class="fas fa-money-bill-wave fa-3x"></i>
+							<p>Cash On Delivery</p>
+						</div>
 
-	<div class="col-md-4 text-danger text-center p-2">
-		<i class="fas fa-truck-moving fa-3x"></i>
-		<p>Free Shipping</p>
-	</div>
-</div>
+						<div class="col-md-4 text-danger text-center p-2">
+							<i class="fas fa-undo-alt fa-3x"></i>
+							<p>Return Available</p>
+						</div>
+
+						<div class="col-md-4 text-danger text-center p-2">
+							<i class="fas fa-truck-moving fa-3x"></i>
+							<p>Free Shipping</p>
+						</div>
+					</div>
 
 
-				<div class="text-center p-3 ">
-					<a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i>
-						Add Cart</a> <a href="" class="btn btn-danger">200 <i
-						class="fas fa-dollar-sign"></i></a>
+					<%
+					if ("Old".equals(b.getBookCategory())) {
+					%>
+
+					<div class="text-center p-3 ">
+						<a href="index.jsp" class="btn btn-success"><i class="fas fa-cart-plus"></i>
+							Continue Shopping</a> <a href="" class="btn btn-danger">200 <i
+							class="fas fa-dollar-sign"></i></a>
+					</div>
+
+					<%
+					}else{%>
+						<div class="text-center p-3 ">
+						<a href="" class="btn btn-primary"><i class="fas fa-cart-plus"></i>
+							Add Cart</a> <a href="" class="btn btn-danger">200 <i
+							class="fas fa-dollar-sign"></i></a>
+					</div>
+					<%
+					}
+					%>
+
+
 				</div>
-
 			</div>
 		</div>
-	</div>
 </body>
 </html>
